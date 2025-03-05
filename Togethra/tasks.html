@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - TogetherA+</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="tasks.css"> <!-- Tasks-specific styles -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <img src="img/logo.png" alt="TogetherA+">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tasks.html">Tasks</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="trusted-contacts.html">Trusted Contacts</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Tasks Selection -->
+        <div class="tasks-container">
+            <h1>What would you like to do?</h1>
+            <div class="task-options">
+                <!-- Task Posting Option -->
+                <div class="task-card" onclick="window.location.href='task-posting.html'">
+                    <img src="img/posttask.png" alt="Post a Task">
+                    <h2>Post a Task</h2>
+                    <p>Need help with something? Post a task and connect with skilled helpers.</p>
+                </div>
+
+                <!-- View Helpers Option -->
+                <div class="task-card" onclick="window.location.href='view-helpers.html'">
+                    <img src="img/helpers.png" alt="View Helpers">
+                    <h2>View Helpers</h2>
+                    <p>Browse through profiles of helpers and find the right match for your task.</p>
+                </div>
+
+                <!-- Helpers Near You Option -->
+                <div class="task-card" onclick="window.location.href='map.html'">
+                    <img src="img/map.png" alt="Helpers Near You">
+                    <h2>Helpers Near You</h2>
+                    <p>Explore a map to find helpers available near your location.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 TogetherA+. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

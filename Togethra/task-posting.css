@@ -1,0 +1,130 @@
+/* General Styles for Form */
+
+body{
+    background-color: white;
+}
+.task-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.task-container h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.task-container .description {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/* Radio Button Group */
+.payment-options {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Duration Fields */
+.duration-fields {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.duration-fields input {
+    flex: 1;
+}
+
+/* Disabled Field Styling */
+input[disabled],
+textarea[disabled],
+select[disabled] {
+    background-color: #eee;
+    color: #999;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+}

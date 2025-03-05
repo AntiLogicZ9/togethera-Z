@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TogetherA+ - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="TogetherA+">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="trusted-contacts.html">Trusted Contacts</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="chatbot.php">Chatbot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to TogetherA+</h1>
+        <p>Empowering individuals with disabilities by connecting them to helpers and resources.</p>
+        <button class="cta-button">Learn More</button>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="intro-container">
+            <div class="intro-left">
+                <img src="img/biglogo.png" alt="TogetherA+ Illustration">
+            </div>
+            <div class="intro-right">
+                <h2>About TogetherA+</h2>
+                <p>
+                    TogetherA+ is a platform designed to empower individuals with disabilities by providing access
+                    to a wide network of helpers, resources, and tools tailored to their unique needs. Our mission
+                    is to foster independence, dignity, and inclusivity for everyone.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Our Services</h2>
+        <div class="feature-grid">
+            <!-- Feature 1 -->
+            <div class="feature-item">
+                <img src="img/task1.png" alt="Task Matching" class="feature-image" />
+                <h3 class="feature-title">Task Matching</h3>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-item">
+                <img src="img/resource1.png" alt="Resource Repository" class="feature-image" />
+                <h3 class="feature-title">Resource Repository</h3>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-item">
+                <img src="img/trust1.png" alt="Trusted Contacts" class="feature-image" />
+                <h3 class="feature-title">Trusted Contacts</h3>
+            </div>
+            <!-- Feature 4 -->
+            <div class="feature-item">
+                <img src="img/access1.png" alt="Accessibility Options" class="feature-image" />
+                <h3 class="feature-title">Accessibility Options</h3>
+            </div>
+            <!-- Feature 5 -->
+            <div class="feature-item">
+                <img src="img/payment1.png" alt="Safe Payments" class="feature-image" />
+                <h3 class="feature-title">Safe Payments</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <div id="chatbot-container">
+        <button id="chatbot-toggle" title="Chat with us" aria-label="Toggle Chatbot" aria-expanded="false">💬</button>
+        <div id="chatbot-bubble" class="hidden" role="dialog" aria-labelledby="chatbot-title">
+            <div class="chatbot-header">
+                <h3 id="chatbot-title">TogetherA+ Chatbot</h3>
+                <button id="close-chatbot" aria-label="Close Chatbot">✖</button>
+            </div>
+            <iframe src="chatbot.php" frameborder="0" title="Chatbot Interface"></iframe>
+        </div>
+    </div>
+
+        <!-- Eye Tracker Status Indicator -->
+        <div id="eye-tracker-status" style="
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        z-index: 1000;
+        display: none;">
+        Eye Tracker Active
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TogetherA+. All rights reserved.</p>
+    </footer>
+
+    <script src="chatbot-toggle.js"></script>
+</body>
+
+</html>
+   <!-- WebGazer.js for Eye Tracking -->
+<script src="https://cdn.jsdelivr.net/npm/webgazer"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh"></script>
+
+<script>
+    window.onload = async () => {
+        const statusIndicator = document.getElementById('eye-tracker-status');
+        let lastGazeX = 0, lastGazeY = 0; // Track latest gaze coordinates
+
+        try {
+            // Show status indicator
+            statusIndicator.style.display = 'block';
+
+            // === WebGazer Setup ===
+            // Create gaze point dot
+            const gazePoint = document.createElement('div');
+            gazePoint.id = 'gaze-point';
+            gazePoint.style.position = 'absolute';
+            gazePoint.style.width = '10px';
+            gazePoint.style.height = '10px';
+            gazePoint.style.backgroundColor = 'red';
+            gazePoint.style.borderRadius = '50%';
+            gazePoint.style.pointerEvents = 'none';
+            gazePoint.style.zIndex = '1000';
+            document.body.appendChild(gazePoint);
+
+            // Initialize WebGazer
+            await webgazer
+                .setGazeListener((data, elapsedTime) => {
+                    if (data) {
+                        const { x, y } = data;
+                        moveGazePoint(x, y);
+                        lastGazeX = x; // Update latest coordinates
+                        lastGazeY = y;
+                    }
+                })
+                .begin();
+
+            webgazer.showVideoPreview(true).showPredictionPoints(true);
+            webgazer.setRegression('ridge').setTracker('clmtrackr');
+
+            // === MediaPipe FaceMesh Setup ===
+            const videoElement = document.createElement('video');
+            videoElement.style.display = 'none';
+            document.body.appendChild(videoElement);
+
+            const faceMesh = new FaceMesh({
+                locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
+            });
+
+            faceMesh.setOptions({
+                maxNumFaces: 1,
+                refineLandmarks: true,
+                minDetectionConfidence: 0.7,
+                minTrackingConfidence: 0.7,
+            });
+
+            let eyeClosedFrames = 0;
+            const eyeClosedThreshold = 15;
+            const EAR_THRESHOLD = 0.25;
+
+            faceMesh.onResults((results) => {
+                if (!results.multiFaceLandmarks) return;
+                const landmarks = results.multiFaceLandmarks[0];
+                const leftEAR = calculateEAR(landmarks.slice(362, 372));
+                const rightEAR = calculateEAR(landmarks.slice(33, 46));
+                const avgEAR = (leftEAR + rightEAR) / 2;
+
+                if (avgEAR < EAR_THRESHOLD) {
+                    eyeClosedFrames++;
+                    if (eyeClosedFrames >= eyeClosedThreshold) {
+                        triggerClick(lastGazeX, lastGazeY); // Use WebGazer coordinates
+                        eyeClosedFrames = 0;
+                    }
+                } else {
+                    eyeClosedFrames = 0;
+                }
+            });
+
+            const camera = new Camera(videoElement, {
+                onFrame: async () => {
+                    await faceMesh.send({ image: videoElement });
+                },
+                width: 640,
+                height: 480,
+            });
+            camera.start();
+
+            // Hide status after 5 seconds
+            setTimeout(() => {
+                statusIndicator.style.display = 'none';
+            }, 5000);
+
+        } catch (error) {
+            statusIndicator.textContent = 'Eye Tracker Failed to Initialize';
+            statusIndicator.style.backgroundColor = 'red';
+        }
+
+        // === Helper Functions ===
+        function triggerClick(x, y) {
+            console.log(`Eye closure detected at (${x}, ${y})! Simulating click...`);
+            const element = document.elementFromPoint(x, y);
+            if (element) element.click();
+        }
+
+        function calculateEAR(eye) {
+            const horizontalDist = distance(eye[0], eye[3]);
+            const verticalDist1 = distance(eye[1], eye[5]);
+            const verticalDist2 = distance(eye[2], eye[4]);
+            return (verticalDist1 + verticalDist2) / (2 * horizontalDist);
+        }
+
+        function distance(point1, point2) {
+            return Math.sqrt(
+                Math.pow(point1.x - point2.x, 2) + 
+                Math.pow(point1.y - point2.y, 2)
+            );
+        }
+
+        function moveGazePoint(x, y) {
+            gazePoint.style.left = `${x}px`;
+            gazePoint.style.top = `${y}px`;
+        }
+    };
+</script>
+
+</body>
+

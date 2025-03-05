@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpers Near You - TogetherA+</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+
+    <style>
+        /* Style for the map container */
+        #map {
+            height: 80vh; /* Map height */
+            width: 100%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="TogetherA+">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="trusted-contacts.html">Trusted Contacts</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <h1>Helpers Near You</h1>
+    </section>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TogetherA+. All rights reserved.</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map centered at a specific location
+        const map = L.map('map').setView([51.505, -0.09], 13); // Coordinates: [latitude, longitude]
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Array of helper locations with coordinates and names
+        const helpers = [
+            { name: "John Doe", lat: 51.505, lng: -0.09 },
+            { name: "Jane Smith", lat: 51.51, lng: -0.1 },
+            { name: "Emily Johnson", lat: 51.507, lng: -0.08 },
+            { name: "Michael Brown", lat: 51.503, lng: -0.07 },
+            { name: "Sarah Wilson", lat: 51.509, lng: -0.12 }
+        ];
+
+        // Add markers for each helper
+        helpers.forEach(helper => {
+            const marker = L.marker([helper.lat, helper.lng]).addTo(map);
+            marker.bindPopup(`<b>${helper.name}</b><br>Available to help.`);
+        });
+
+        // Add a circle to show the user's area
+        const circle = L.circle([51.505, -0.09], {
+            color: 'blue',
+            fillColor: '#03f',
+            fillOpacity: 0.3,
+            radius: 1000
+        }).addTo(map);
+        circle.bindPopup("Your approximate location.");
+    </script>
+</body>
+
+</html>
