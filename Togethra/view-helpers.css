@@ -1,0 +1,143 @@
+/* General Page Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: grey;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: white;
+}
+
+/* Helpers Section */
+.helpers-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.helpers-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.helpers-container .description {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: grey;
+}
+
+/* Helper List */
+.helper-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Helper Card */
+.helper-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.helper-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.helper-photo {
+    width: 100px; /* Set the container width */
+    height: 100px; /* Set the container height */
+    overflow: hidden; /* Hide parts of the image outside the circle */
+    border-radius: 50%; /* Make the container circular */
+    margin: 0 auto 10px auto; /* Center the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.helper-photo img {
+    width: 120%; /* Zoom in slightly */
+    height: 120%; /* Ensure the image fills the container */
+    object-fit: cover; /* Ensures the image scales correctly without distortion */
+    border-radius: 50%; /* Matches the container's shape */
+}
+
+.helper-info h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.helper-info p {
+    font-size: 14px;
+    color: grey;
+    margin: 5px 0;
+}
+
+.rating {
+    font-size: 18px;
+    color: #f1c40f; /* Gold color for stars */
+}
+
+/* Footer */
+footer {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 20px;
+    color: grey;
+    font-size: 14px;
+}

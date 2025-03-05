@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+    color: white;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: grey;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: white;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: grey;
+}
+
+/* Filter Section */
+.filter-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-container label {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#filter-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Resource Section */
+.resource-section {
+    margin-bottom: 40px;
+}
+
+.resource-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+}
+
+/* Resource Grid */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Resource Cards */
+.resource-card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card img {
+    max-width: 100%;
+    height: 120px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.resource-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1f1f1f;
+}
+
+.resource-card p {
+    font-size: 14px;
+    color: grey;
+}
+
+.resource-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.resource-button:hover {
+    background-color: grey;
+}
+
+/* Footer */
+footer {
+    background-color: #1f1f1f;
+    color: grey;
+    text-align: center;
+    padding: 20px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - TogetherA+</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resources.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="TogetherA+">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="trusted-contacts.html">Trusted Contacts</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <h1>Resources</h1>
+        <p class="description">Explore a variety of resources designed to empower individuals with disabilities. Access audiobooks, videos, guides, and more!</p>
+
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <label for="filter-select">Filter by Category:</label>
+            <select id="filter-select">
+                <option value="all">All</option>
+                <option value="educational">Educational</option>
+                <option value="tools">Assistive Tools</option>
+                <option value="community">Community Support</option>
+            </select>
+        </div>
+
+        <!-- Resource Section -->
+        <section class="resource-section" data-category="educational">
+            <h2>Educational Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <img src="resource/audio.png" alt="Audiobooks">
+                    <h3>Audiobooks</h3>
+                    <p>Access a library of audiobooks tailored for visually impaired users.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/tutorial.png" alt="Tutorials">
+                    <h3>Tutorials</h3>
+                    <p>Step-by-step guides on various topics to support learning.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/guides.png" alt="Guides">
+                    <h3>Accessible Guides</h3>
+                    <p>Comprehensive guides designed for individuals with disabilities.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-section" data-category="tools">
+            <h2>Assistive Tools</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <img src="resource/text-to-speech.png" alt="Text-to-Speech">
+                    <h3>Text-to-Speech</h3>
+                    <p>Convert written content into spoken words seamlessly.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/sign.png" alt="Sign Language Videos">
+                    <h3>Sign Language Videos</h3>
+                    <p>Learn and communicate effectively using sign language resources.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/textspeech.png" alt="Screen Readers">
+                    <h3>Screen Readers</h3>
+                    <p>Explore tools that make digital content accessible for all.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-section" data-category="community">
+            <h2>Community Support</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <img src="resource/readers.png" alt="Forums">
+                    <h3>Support Forums</h3>
+                    <p>Engage with a community of helpers and individuals with disabilities.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/webinars.png" alt="Webinars">
+                    <h3>Webinars</h3>
+                    <p>Attend live sessions hosted by experts to learn and grow.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+                <div class="resource-card">
+                    <img src="resource/volunteers.png" alt="Volunteer Programs">
+                    <h3>Volunteer Programs</h3>
+                    <p>Find opportunities to contribute and make a difference.</p>
+                    <button class="resource-button">View Resource</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TogetherA+. All rights reserved.</p>
+    </footer>
+
+    <script src="resources.js"></script>
+</body>
+
+</html>

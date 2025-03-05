@@ -1,0 +1,178 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Set background to white */
+    color: #333; /* Dark grey text */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes the full viewport height */
+}
+
+/* Header Styles */
+header {
+    background-color: #1f1f1f;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    width: 140px; /* Adjust logo size */
+    height: auto;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: grey;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: white;
+    background-color: #333; /* Subtle background on hover */
+}
+
+/* Trusted Contacts Container */
+.trusted-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff; /* Ensure container is white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1; /* Allow it to stretch to fill available space */
+}
+
+.trusted-heading {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.trusted-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.trusted-subheading {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #333; /* Ensure visible text */
+}
+
+/* Form Styles */
+#trusted-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.trusted-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.trusted-form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.trusted-input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.trusted-add-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.trusted-add-btn:hover {
+    background-color: #555;
+}
+
+/* Trusted Contacts List */
+.trusted-contacts-list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.trusted-contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.trusted-contact-item button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.trusted-contact-item button:hover {
+    background-color: #c0392b;
+}
+
+/* No Contacts */
+.trusted-no-contacts {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 15px;
+    color: grey;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensure footer spans the full width */
+}
